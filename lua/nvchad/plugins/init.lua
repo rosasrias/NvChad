@@ -22,6 +22,8 @@ return {
 
   {
     "echasnovski/mini.icons",
+    lazy = true,
+    event = "VeryLazy",
     opts = function()
       dofile(vim.g.base46_cache .. "miniicons")
       return require "nvchad.icons.miniicons"
