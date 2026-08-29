@@ -1,5 +1,3 @@
-dofile(vim.g.base46_cache .. "dressing")
-
 return {
   input = {
     enabled = true,
