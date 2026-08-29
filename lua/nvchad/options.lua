@@ -18,7 +18,7 @@ o.mouse = "a"
 o.termguicolors = true
 o.ttyfast = true
 
-o.guicursor = {
+opt.guicursor = {
   "n:block",
   "v:block",
   "i:ver25",
