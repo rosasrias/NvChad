@@ -3,8 +3,14 @@ local o = vim.o
 local g = vim.g
 
 o.encoding = "utf-8"
-o.fileencoding = "utf-8"
-o.fileformat = "unix"
+
+-- fileencoding/fileformat are buffer-local. During lazy install/update the
+-- current buffer is 'nomodifiable', which makes setting them raise E21.
+if vim.bo.modifiable then
+  o.fileencoding = "utf-8"
+  o.fileformat = "unix"
+end
+
 opt.fileformats = { "unix", "dos" }
 
 o.laststatus = 3
