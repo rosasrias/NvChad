@@ -24,12 +24,12 @@ return {
     "echasnovski/mini.icons",
     opts = function()
       dofile(vim.g.base46_cache .. "miniicons")
-      return { override = require "nvchad.icons.miniicons" }
+      return require "nvchad.icons.miniicons"
     end,
-    config = function ()
-      require("mini.icons").setup()
+    config = function(_, opts)
+      require("mini.icons").setup(opts)
       require("mini.icons").mock_nvim_web_devicons()
-    end
+    end,
   },
 
   {
@@ -212,15 +212,6 @@ return {
 
     opts = function()
       return require("nvchad.configs.rainbow-delimiters")
-    end,
-  },
-
-  {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    opts = function()
-      return require("nvchad.configs.snacks")
     end,
   },
 
