@@ -2,14 +2,14 @@ return {
   "nvim-lua/plenary.nvim",
 
   {
-    dir = "~/Documents/code/plugins/base46",
+    "rosasrias/base46",
     build = function()
       require("base46").load_all_highlights()
     end,
   },
 
   {
-    dir="~/Documents/code/plugins/ui",
+    "rosasrias/ui",
     lazy = false,
     config = function()
       require "nvchad"
