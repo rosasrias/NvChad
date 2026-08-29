@@ -15,11 +15,13 @@ return {
   },
   renderer = {
     root_folder_label = false,
-    highlight_git = true,
-    indent_markers = { enable = true },
+    indent_markers = {
+      enable = true,
+    },
     icons = {
       glyphs = {
-        default = "󰈚",
+        default = " ",
+        symlink = " ",
         folder = {
           default = "",
           empty = "",
@@ -27,7 +29,19 @@ return {
           open = "",
           symlink = "",
         },
-        git = { unmerged = "" },
+        git = {
+          deleted = " ",
+          unstaged = " ",
+          untracked = " ",
+          staged = " ",
+          unmerged = " ",
+        },
+      },
+      show = {
+        git = true,
+        folder = true,
+        file = true,
+        folder_arrow = false,
       },
     },
   },
