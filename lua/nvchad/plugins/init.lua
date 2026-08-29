@@ -21,11 +21,15 @@ return {
   { "nvzone/minty", cmd = { "Huefy", "Shades" } },
 
   {
-    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.icons",
     opts = function()
-      dofile(vim.g.base46_cache .. "devicons")
-      return { override = require "nvchad.icons.devicons" }
+      dofile(vim.g.base46_cache .. "miniicons")
+      return { override = require "nvchad.icons.miniicons" }
     end,
+    config = function ()
+      require("mini.icons").setup()
+      require("mini.icons").mock_nvim_web_devicons()
+    end
   },
 
   {
@@ -162,5 +166,87 @@ return {
     opts = function()
       return require "nvchad.configs.treesitter"
     end,
+  },
+
+  {
+    "folke/todo-comments.nvim",
+    lazy = true,
+    cmd = { "TodoTrouble", "TodoLocList", "TodoQuickFix", "TodoTelescope" },
+    opts = function ()
+      return require "nvchad.configs.todo"
+    end
+  },
+
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      {
+        "rcarriga/nvim-notify",
+        opts = function()
+          return require("nvchad.configs.notify")
+        end,
+      },
+    },
+    opts = function()
+      return require("nvchad.configs.noice")
+    end,
+  },
+
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+
+    keys = {
+      {
+        "<leader>rt",
+        "<cmd>RainbowToggle<cr>",
+        desc = "[R]ainbow [T]oggle",
+      },
+    },
+
+    opts = function()
+      return require("nvchad.configs.rainbow-delimiters")
+    end,
+  },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = function()
+      return require("nvchad.configs.snacks")
+    end,
+  },
+
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require("nvchad.configs.flash")
+    end,
+    keys = {
+      {
+        "s",
+        function()
+          require("flash").jump()
+        end,
+        mode = { "n", "x", "o" },
+        desc = "Flash",
+      },
+      {
+        "S",
+        function()
+          require("flash").treesitter()
+        end,
+        mode = { "n", "x", "o" },
+        desc = "Flash Treesitter",
+      },
+    },
   },
 }
