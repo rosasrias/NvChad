@@ -219,6 +219,14 @@ return {
   },
 
   {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require("nvchad.configs.dressing")
+    end,
+  },
+
+  {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = function()
