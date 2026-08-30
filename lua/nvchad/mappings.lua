@@ -1,7 +1,6 @@
 local map = vim.keymap.set
 
 map("n", "<C-a>", "gg<S-v>G", { desc = "[S]elect All [D]ocument" })
-map("n", "<C-b>", "<cmd>lua require('core.functions').build_run()<cr>", { desc = "[E]xecute [C]ode" })
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "move end of line" })
 map("i", "<C-h>", "<Left>", { desc = "move left" })
