@@ -181,7 +181,7 @@ return {
 
   {
     "folke/noice.nvim",
-    event = "VeryLazy",
+    event = { "BufReadPost", "CmdlineEnter" },
     dependencies = {
       "MunifTanjim/nui.nvim",
       {
@@ -220,7 +220,7 @@ return {
 
   {
     "stevearc/dressing.nvim",
-    event = "VeryLazy",
+    event = "User FilePost",
     opts = function()
       return require("nvchad.configs.dressing")
     end,
@@ -228,7 +228,6 @@ return {
 
   {
     "folke/flash.nvim",
-    event = "VeryLazy",
     opts = function()
       return require("nvchad.configs.flash")
     end,
