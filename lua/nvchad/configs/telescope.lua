@@ -15,6 +15,7 @@ return {
       },
       width = 0.90,
       height = 0.55,
+      preview_cutoff = 50,
     },
     mappings = {
       n = { ["q"] = require("telescope.actions").close },
